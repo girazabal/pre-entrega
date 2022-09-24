@@ -33,6 +33,21 @@ const comic4 = new Comic('The walking dead #25', 400,4);
 
 comics.push(comic1, comic2, comic3, comic4);
 
+if(confirm('Desea ordenar los productos del menor al mayor precio?')){
+    const ordenarMenorMayor = ()=>{
+        comics.sort((a,b)=>a.precio - b.precio);
+    }
+    ordenarMenorMayor();
+}
+
+const listaOrdenada = ()=>{
+        const comicsOrdenados = [];
+        comics.forEach(comic =>comicsOrdenados.push(comic.titulo+' $'+comic.precio));
+        alert('Lista de precios: '+'\n'+comicsOrdenados.join('\n'));
+
+}
+listaOrdenada();
+
 
 function obtenerComics() {
     let misComics = 'Ingrese el numero de comic que desea adquirir \n';
@@ -66,6 +81,7 @@ function ingresarComics(){
 while (confirm('Desea realizar otra compra?')){
     ingresarComics();
 }
+
 
 alert('El precio total de su compra es de $ '+contador)
 console.log(contador);
